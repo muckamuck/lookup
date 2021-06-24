@@ -54,7 +54,7 @@ def ssm(key, profile, region):
         if wrk:
             print(wrk, end='')
         else:
-            logger.info(f'no value found for {key=}')
+            logger.info(f'no value found for key={key}')
     except Exception as wtf:
         logger.error(wtf, exc_info=False)
         sys.exit(1)
