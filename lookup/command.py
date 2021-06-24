@@ -44,15 +44,17 @@ def cli():
 @click.option('--region', '-r', help='AWS region')
 def ssm(key, profile, region):
     try:
-        logger.info('xxxxxxxxxxxxxxxx')
-        print('xxxxx', end='')
         if region is None:
             region = DEFAULT_REGION
 
         clients = init_boto3_clients(services, profile=profile, region=region)
         ssm_client = clients['ssm']
         response = ssm_client.get_parameter(Name=key, WithDecryption=True)
-        return response.get('Parameter', {}).get('Value', None)
+        wrk = response.get('Parameter', {}).get('Value', None)
+        if wrk:
+            print(wrk, end='')
+        else:
+            logger.info(f'no value found for {key=}')
     except Exception as wtf:
         logger.error(wtf, exc_info=False)
         sys.exit(1)
