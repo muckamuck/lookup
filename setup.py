@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(
     name="Lookup",
-    version='0.1.0',
+    version='0.1.1',
     packages=['lookup'],
     description='Lookup AWS stuff',
     author='Chuck Muckamuck',
