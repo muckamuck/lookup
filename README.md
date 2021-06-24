@@ -18,3 +18,7 @@ Options:
   -r, --region TEXT   AWS region
   --help              Show this message and exit.
 ```
+
+---
+
+v 0.1.0
